@@ -1,0 +1,32 @@
+<header class="header">
+  <h1 class="header__title">Jonathan Ullherr</h1>
+  <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :keywords, params[:keywords], placeholder: "Suche" %>
+    
+  <% end %>
+</header>
+
+<main class="main">
+  <aside class="main__aktuell">
+    <%= link_to 'aktueller Eintrag', controller: 'aktuell' %>
+  </aside>
+  <h2 class="main__title">Mein erstes Jahr</h2>
+  <ul class="main__overview">
+    <% @articles.each do |article| %>
+    <li class="overview__item">
+      <a href="/articles/show/<%= article.id -%>" class="overview__link" up-modal=".detailansicht"><%= article.abbr %></a>
+    </li>
+  <% end %>
+</ul>
+</main>
+
+
+
+<% if @articles.blank? %>
+  <p>Keine Treffer gefunden</p>
+<% end %>
+
+
+
+
+ 

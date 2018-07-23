@@ -1,0 +1,22 @@
+<div class="detailansicht">
+  <h1 class="detailansicht__title">
+    <%= @article.title %>
+  </h1>
+
+  <div class="detailansicht__img">
+    <%= image_tag @article.images.first.picture_url, width: '100%' if @article.images.first.picture.present? %>
+  </div>
+
+  <p class="detailansicht__text">
+    <%= @article.text %>
+  </p>
+
+  <div class="detailansicht__thumbs">
+    <% @article.images.each do |image| %>
+      <div class="detailansicht__thumb">
+        <%= image_tag image.picture_url, width: '100%' if image.picture.present? %>
+      </div>
+    <% end %>
+  </div>
+  
+</div>

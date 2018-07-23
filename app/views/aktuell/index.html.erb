@@ -1,0 +1,35 @@
+<header class="header">
+    <h1 class="header__title">Aktueller Eintrag</h1>
+</header>
+
+<main class="main">
+    <aside class="main__aktuell">
+        <%= link_to 'alle Wochen', controller: 'articles' %>
+    </aside>
+
+    <h2 class="detailansicht__title"><%= @article.title %></h2>
+
+    <div class="detailansicht__img">
+        <%= image_tag @article.images.first.picture_url, width: '100%' if @article.images.first.picture.present? %>
+    </div>
+
+    <p class="detailansicht__text"><%= @article.text %></p>
+
+    <div class="detailansicht__thumbs">
+        <% @article.images.each do |image| %>
+            <div class="detailansicht__thumb">
+            <a href="/aktuell/bilder/<%= image.id -%>" up-modal=".images"><%= image_tag image.picture_url(:thumb) if image.picture.present? %></a>
+            </div>
+        <% end %>
+    </div>
+
+    <ul>
+        <% tags = @article.tags.split(',') %>
+        <% tags.each do |tag| %>
+            <li>
+                <a href="#"><%= tag %></a>
+            </li>
+        <% end %>
+    </ul>
+</main>
+

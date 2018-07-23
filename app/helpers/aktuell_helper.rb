@@ -1,0 +1,2 @@
+module AktuellHelper
+end
