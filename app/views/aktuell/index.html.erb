@@ -1,9 +1,13 @@
 <header class="header">
-    <h1 class="header__title">Aktueller Eintrag</h1>
+  <h1 class="header__title">Jonathan Ullherr</h1>
+  <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :keywords, params[:keywords], placeholder: "Suche" %>
+    
+  <% end %>
 </header>
 
 <main class="main">
-    <aside class="main__aktuell">
+    <aside class="main__link">
         <%= link_to 'alle Wochen', controller: 'articles' %>
     </aside>
 

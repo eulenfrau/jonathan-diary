@@ -7,7 +7,7 @@
 </header>
 
 <main class="main">
-  <aside class="main__aktuell">
+  <aside class="main__link">
     <%= link_to 'aktueller Eintrag', controller: 'aktuell' %>
   </aside>
   <h2 class="main__title">Mein erstes Jahr</h2>
@@ -18,13 +18,16 @@
     </li>
   <% end %>
 </ul>
+
+  <% if @articles.blank? %>
+    <div class="main__alert">
+      <p>Keine Treffer gefunden</p>
+    </div>
+    <div class="main__button">
+      <%= link_to 'Zurück', articles_path %> 
+    </div>
+  <% end %>
 </main>
-
-
-
-<% if @articles.blank? %>
-  <p>Keine Treffer gefunden</p>
-<% end %>
 
 
 

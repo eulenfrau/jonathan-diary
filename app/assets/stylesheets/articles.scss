@@ -90,7 +90,7 @@ $width-large: 1000px;
 }
 
 .main {
-    &__aktuell {
+    &__link {
         padding: 10px;
         background-color: $color-main;
 
@@ -116,8 +116,12 @@ $width-large: 1000px;
         color: $color-second;
         padding: 30px 10px;
 
-        @media screen and (min-width: $width-small+1){
+        @media screen and (min-width: $width-medium+1){
             font-size: 44px;
+        }
+
+        @media screen and (max-width: $width-medium) {
+            font-size: 32px;
         }
 
         @media screen and (max-width: $width-small) {
@@ -130,6 +134,55 @@ $width-large: 1000px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 20px;
+    }
+
+    &__alert {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        padding: 20px;
+        color: $color-main;
+         @media screen and (min-width: $width-medium+1) {
+             font-size: 32px;
+         }
+
+         @media screen and (max-width: $width-medium) {
+             font-size: 20px;
+         }
+    }
+
+    &__button {
+        width: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        padding: 10px;
+        margin-top: 30px;
+        border: solid 1px $color-second;
+        border-radius: 5px;
+        background-color: $color-second;
+        transition: all 0.3s ease-in;
+         @media screen {
+             
+         }
+
+        a {
+            color: white;
+            @media screen and (min-width: $width-medium+1) {
+                font-size: 32px;
+            }
+   
+            @media screen and (max-width: $width-medium) {
+                font-size: 20px;
+            }
+        }
+        
+    }
+
+    &__button:hover {
+        text-shadow: 1px 1px 1px $shadow;
+        box-shadow: 1px 1px 1px $shadow;
     }
 
     .overview__item {
@@ -386,7 +439,13 @@ $width-large: 1000px;
     }
 
     &__thumb {
-        width: calc(10% - 20px);
+        @media screen and (min-width: $width-medium+1) {
+            width: calc(10% - 20px);
+        }
+
+        @media screen and (max-width: $width-medium) {
+            width: calc(30% - 20px);
+        }
         flex: 0 0 auto;
 
         img {
@@ -398,7 +457,14 @@ $width-large: 1000px;
     }
 
     &__thumb:hover {
-        width: calc(30% - 20px);
+        @media screen and (min-width: $width-medium+1) {
+            width: calc(30% - 20px);
+        }
+
+        @media screen and (max-width: $width-medium) {
+            width: calc(50% - 20px);
+        }
+        width: calc(50% - 20px);
     }
 
 }
