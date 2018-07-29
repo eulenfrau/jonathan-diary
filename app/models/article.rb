@@ -3,7 +3,7 @@ class Article < ApplicationRecord
 
     has_many :images
 
-    scope :keywords, -> (term) {where("title LIKE ? OR tags LIKE ?", "%#{term}%", "%#{term}%" )}
+    scope :keywords, -> (term) {where("title LIKE ? OR tags LIKE ? OR text LIKE ?", "%#{term}%", "%#{term}%", "%#{term}%")}
 
     
 end
