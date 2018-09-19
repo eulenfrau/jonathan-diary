@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/articles/show/:id', to: 'articles#show'
 
+  get '/articles/gallery/:id', to: 'articles#gallery'
+
   resources :articles, only: [:show, :index]
 
   root 'aktuell#index'

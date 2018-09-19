@@ -14,7 +14,7 @@
   <ul class="main__overview">
     <% @articles.each do |article| %>
     <li class="overview__item">
-      <a href="/articles/show/<%= article.id -%>" class="overview__link" up-modal=".detailansicht"><%= article.abbr %></a>
+      <a href="/articles/show/<%= article.id -%>" class="overview__link"><%= article.abbr %></a>
     </li>
   <% end %>
 </ul>

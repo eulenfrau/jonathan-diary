@@ -1,22 +1,30 @@
-<div class="detailansicht">
-  <h1 class="detailansicht__title">
-    <%= @article.title %>
-  </h1>
+<header class="header">
+  <h1 class="header__title">Jonathan Ullherr</h1>
+  <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :keywords, params[:keywords], placeholder: "Suche" %>
+    
+  <% end %>
+</header>
 
-  <div class="detailansicht__img">
-    <%= image_tag @article.images.first.picture_url, width: '100%' if @article.images.first.picture.present? %>
-  </div>
+<main class="main">
+    <aside class="main__link">
+        <%= link_to 'alle Wochen', controller: 'articles' %>
+    </aside>
 
-  <p class="detailansicht__text">
-    <%= @article.text %>
-  </p>
+    <h2 class="detailansicht__title"><%= @article.title %></h2>
 
-  <div class="detailansicht__thumbs">
-    <% @article.images.each do |image| %>
-      <div class="detailansicht__thumb">
-        <%= image_tag image.picture_url, width: '100%' if image.picture.present? %>
-      </div>
-    <% end %>
-  </div>
-  
-</div>
+    <div class="detailansicht__img">
+        <%= image_tag @article.images.first.picture_url, width: '100%' if @article.images.first.picture.present? %>
+    </div>
+
+    <div class="detailansicht__text">
+        <div class="detailansicht__text--decoration"></div>
+        <%= simple_format(@article.text) %>
+    </div>
+
+    <div class="detailansicht__thumbs">
+        <% @article.images.each do |image| %>
+            <a href="/articles/gallery/<%= image.id -%>" up-modal=".images"><%= image_tag image.picture_url(:thumb) if image.picture.present? %></a>
+        <% end %>
+    </div>
+</main>

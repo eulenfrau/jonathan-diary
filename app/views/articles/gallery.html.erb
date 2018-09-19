@@ -1,0 +1,5 @@
+
+<div class="images">
+    <%= image_tag @image.picture_url, width: '100%' if @image.picture.present? %>
+    <a href="/articles/gallery/<%= @image.next.id %>" class="main__button" up-target=".images" up-transition="cross-fade">weiter</a>
+</div>
